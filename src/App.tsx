@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { GlobalStyle } from "./styles/global";
+import { ThemeProvider, DefaultTheme } from 'styled-components';
+
+
+import { LightTheme } from './styles/themes/light';
+import { DarkTheme } from './styles/themes/dark';
+import { Buttons } from './pages/StyleGuide/Buttons';
+import { InputTexts } from './pages/StyleGuide/InputTexts';
+import { Login } from './pages/Login';
+
+
+
 
 function App() {
+  const [theme, setTheme] = useState<DefaultTheme>(LightTheme);
+
+  function handleToggleTheme(){
+     setTheme( theme === LightTheme ? DarkTheme : LightTheme);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <GlobalStyle />
+        { /*<Buttons toggleTheme={handleToggleTheme} /> */}
+        <Login />
+      </div>    
+    </ThemeProvider>
   );
+  
 }
 
 export default App;
