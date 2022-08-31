@@ -51,7 +51,23 @@ const DarkTheme : DefaultTheme = {
             borderColor: 'rgba(255, 255, 255, 0.1)',
             background: 'rgba(255, 255, 255, 0.05)',
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
-        }
+        },
+        checkBox:{
+            background: 'var(--dark_cor1)',
+            backgroundHover: 'var(--dark_cor1)',
+            backgroundChecked: 'var(--dark_cor4)',
+            backgroundCheckedHover: 'var(--dark_cor4)',
+            backgroundDisabled: 'var(--dark_cor1)',
+            backgroundError: 'var(--dark_cor9)',
+            border: 'var(--dark_cor3)', 
+            borderHover: 'linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), var(--cor9)',
+            borderChecked: 'var(--dark_cor4)',
+            borderDisabled: 'rgba(233, 233, 233, 0.1)',
+            borderError: 'var(--dark_cor1)',
+            label: 'var(--dark_cor3)',
+            check: 'var(--cor7)', 
+            checkDisabled: 'var(--cor5)'         
+         }
     },
 
 }

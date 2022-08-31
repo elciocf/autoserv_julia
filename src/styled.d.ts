@@ -36,6 +36,25 @@ interface IBox{
    borderColor: string;
 }
 
+
+interface ICheckBox{
+   background: string;
+   backgroundHover: string;
+   backgroundChecked: string;
+   backgroundCheckedHover: string;
+   backgroundDisabled: string;
+   backgroundError: string;
+   border: string;
+   borderHover: string;
+   borderChecked: string;
+   borderDisabled: string;
+   borderError: string;
+   label: string;
+   check: string;
+   checkDisabled: string;
+
+}
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     title: string;
@@ -58,6 +77,8 @@ declare module 'styled-components' {
        inputText: IInputTextColors;
 
        box: IBox;
+
+       checkBox: ICheckBox;
     }
       
    }

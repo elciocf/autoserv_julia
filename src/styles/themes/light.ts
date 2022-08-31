@@ -51,7 +51,23 @@ const LightTheme : DefaultTheme = {
             borderColor: 'var(--cor7)',
             background: 'var(--cor7)',
             boxShadow: '0px 2px 4px rgba(171, 190, 209, 0.6)'
-        }
+        },
+        checkBox:{
+            background: 'var(--cor7)',
+            backgroundHover: 'var(--cor7)',
+            backgroundChecked: 'var(--cor8)',
+            backgroundCheckedHover: 'var(--cor33)',
+            backgroundDisabled: 'var(--cor31)',
+            backgroundError: 'var(--cor7)',
+            border: 'var(--cor4)', 
+            borderHover: 'var(--cor8)',
+            borderChecked: 'var(--cor8)',
+            borderDisabled: 'var(--cor31)',
+            borderError: 'var(--cor27)',
+            label: 'var(--cor1)',
+            check: 'var(--cor7)', 
+            checkDisabled: 'var(--cor5)'         
+         }
     },
 
 }

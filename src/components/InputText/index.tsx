@@ -16,9 +16,10 @@ interface InputTextProps{
     isInvalid?: boolean;
     isDisabled?: boolean;
     isReadOnly?: boolean;
+    isPassword?: boolean;
 }
 
-function InputText({value='', label='', ErrorInfo='', textHint='', hint='', required = false, isInvalid = false, isDisabled = false, isReadOnly = false, isValid = false}: InputTextProps) {
+function InputText({value='', label='', ErrorInfo='', textHint='', hint='', required = false, isInvalid = false, isDisabled = false, isReadOnly = false, isValid = false, isPassword = false}: InputTextProps) {
     const [isFocused, setIsFocused] = useState(false);
 
     function toggleFocus(){
@@ -29,7 +30,7 @@ function InputText({value='', label='', ErrorInfo='', textHint='', hint='', requ
         <Container isFocused={isFocused} isInvalid={isInvalid} isDisabled={isDisabled} isReadOnly={isReadOnly} isValid={isValid}>
             {label  !== '' && <label>{label}</label>}
             <InputTextBox isFocused={isFocused} isInvalid={isInvalid} isDisabled={isDisabled} isReadOnly={isReadOnly} isValid={isValid}>                        
-                <input type="text" value={value}  placeholder={textHint} title={hint} required={required}  onFocus={toggleFocus}  onBlur={toggleFocus} disabled={isDisabled} readOnly={isReadOnly}/>
+                <input type={isPassword ? "password": "text"} value={value}  placeholder={textHint} title={hint} required={required}  onFocus={toggleFocus}  onBlur={toggleFocus} disabled={isDisabled} readOnly={isReadOnly}/>
                 {isInvalid && <img src={InvalidIcon} alt="valor inválido" /> }
                 {isValid && <img src={ValidIcon} alt="valor válido" /> }
             </InputTextBox>

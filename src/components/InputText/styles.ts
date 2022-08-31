@@ -22,6 +22,8 @@ export const Container = styled.div<InputTextStyles>`
       margin-bottom: 3px;
       height: 21px;
       font-weight: 500;
+      font-size: 16px;
+      line-height: 21px;
       ${props => {        
          if (props.isValid) {
             return `color: ${props.theme.palette.inputText.validLabelHint};`;
@@ -44,6 +46,7 @@ export const Container = styled.div<InputTextStyles>`
       height: 14px;
       font-weight: 600;
       font-size: 12px;
+      line-height: 21px;
 
       ${props => {        
          if (props.isValid) {

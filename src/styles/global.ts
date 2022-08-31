@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
         --cor11: #BAD2FF;
         --cor12: #FCFCFF;
         --cor31: #EAF1FF;
+        --cor33: #0663C7;
 
         --cor13: #115B43;
         --cor14: #1B6E53;

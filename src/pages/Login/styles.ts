@@ -2,12 +2,21 @@ import styled from "styled-components";
 import logo from "../../assets/logo-autoserv.png";
 
 
+
 export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
 
-        background-color: var(--cor10);
+        ${props => {        
+            if (props.theme.title === 'Dark') {
+                return `background-color: var(--dark_cor1);`;
+            }  
+            
+            return `background-color: var(--cor10);`      
+        }}
+
+
         width: 100vw;
         height: 100vh;
         background-image: url(${logo});  
@@ -17,6 +26,7 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
+    padding: 48px;
     width: 511px;
     display: flex;
     flex-direction: column;    
@@ -35,6 +45,17 @@ export const Logo = styled.div`
         width: 344px;
         height: 61px;
     }
+    
+`
+
+export const Bottom = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`
+
+export const Error = styled.div`
     
 `
 
