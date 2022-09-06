@@ -35,7 +35,7 @@ function Login() {
     const [retorno, setRetorno] = useState('');
 
     const onSubmit : SubmitHandler<LoginFormFields> = async data => {
-        
+        setRetorno('');
         try{
             const response = await apiAutoServ.post('signin',{
                     email: data.email,	
