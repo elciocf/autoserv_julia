@@ -7,7 +7,8 @@ import logotipo from "../../assets/logotipo.png";
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { setLocale } from 'yup';
+import { apiAutoServ } from '../../services/apiAutoServ';
+import { useState } from 'react';
 
 
 
@@ -31,9 +32,24 @@ function Login() {
         resolver: yupResolver(schema)
     });
 
-    const onSubmit : SubmitHandler<LoginFormFields> = data => {
-        console.log('submitting...');
-        console.log('submit fields:', data);
+    const [retorno, setRetorno] = useState('');
+
+    const onSubmit : SubmitHandler<LoginFormFields> = async data => {
+        
+        try{
+            const response = await apiAutoServ.post('signin',{
+                    email: data.email,	
+                    senha: data.password,
+                    cod_cicom: data.codCicom	
+                
+            });
+        
+
+            console.log(response);
+        }catch(error:any){
+            setRetorno(error.response.data?.message || error.response?.data || error)
+            console.log(error.response.data?.message || error.response?.data || error)
+        }
     }
 
     return(
@@ -68,6 +84,7 @@ function Login() {
                         />
                      </Bottom>
                      <Error>
+                        {retorno}
                      </Error>
                      <Button buttonKind='submit' caption='Entrar' buttonSize='large' buttonType='primary' />                                       
                 </Content>
