@@ -26,13 +26,13 @@ export function InputTexts({toggleTheme}: InputTextsProps){
               </ContentLine>
               <ContentLine>
                  <label>Invalid</label> 
-                 <InputText  ErrorInfo='Hint' label='Label' textHint='Text hint' isInvalid />            
-                 <InputText  ErrorInfo='Hint' label='Label' value='invalid value' textHint='Text hint' isInvalid />            
+                 <InputText   label='Label' textHint='Text hint'  />            
+                 <InputText   label='Label' value='invalid value' textHint='Text hint'  />            
               </ContentLine>
               <ContentLine>
                  <label>Valid</label> 
-                 <InputText  ErrorInfo='Hint' label='Label' textHint='Text hint' isValid />            
-                 <InputText  ErrorInfo='Hint' label='Label' value='Valid value' textHint='Text hint' isValid />            
+                 <InputText   label='Label' textHint='Text hint' isValid />            
+                 <InputText   label='Label' value='Valid value' textHint='Text hint' isValid />            
               </ContentLine>
               <ContentLine>
                  <label>Disabled</label> 

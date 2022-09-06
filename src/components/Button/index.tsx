@@ -8,6 +8,7 @@ interface ButtonProps{
     caption?: string;
     buttonSize?: 'small'|'medium'|'large';
     buttonType?: 'primary'|'secondary';
+    buttonKind?: 'button'|'submit';
     disabled?: boolean; 
     onClick?: ()=>void;
     leftIcon?: ReactNode;
@@ -16,19 +17,17 @@ interface ButtonProps{
     hint?: string;
 }
 
-function Button({caption='', buttonSize = 'medium', buttonType = 'primary', disabled = false, leftIcon, rightIcon, loading = false, hint ='' , onClick}: ButtonProps) {
+function Button({buttonKind='button',caption='', buttonSize = 'medium', buttonType = 'primary', disabled = false, leftIcon, rightIcon, loading = false, hint ='' , onClick}: ButtonProps) {
 
 
     return(
         <>
-            <ButtonBox buttonSize={buttonSize} buttonType={buttonType} disabled={disabled} onClick={onClick} title={hint}>                
+            <ButtonBox type={buttonKind} buttonSize={buttonSize} buttonType={buttonType} disabled={disabled} onClick={onClick} title={hint}>                
               <>
                 {!loading && leftIcon}
                 {caption !== '' && <label>{caption}</label> }
                 {loading && <LoadingIcon size={buttonSize} iconType={buttonType} />}                
-                {!loading && rightIcon}
-                
-                
+                {!loading && rightIcon}                                
               </>                
             </ButtonBox>
         </> 
