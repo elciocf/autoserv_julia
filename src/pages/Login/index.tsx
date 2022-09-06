@@ -2,11 +2,14 @@ import { Box } from '../../components/Box';
 import { Button } from '../../components/Button';
 import { InputText } from '../../components/InputText';
 import { Container, Content, Logo, Bottom, Error } from './styles';
-
 import { CheckBox } from '../../components/CheckBox';
-
 import logotipo from "../../assets/logotipo.png";
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
+import { setLocale } from 'yup';
+
+
 
 
 type LoginFormFields ={
@@ -16,8 +19,17 @@ type LoginFormFields ={
     rememberMe: boolean;
 }
 
+
+let schema = yup.object().shape({
+    codCicom: yup.number().required('Informe o código CICOM').positive('Deve ser um número maior que zero').integer('Informe apenas números').typeError('Deve ser informado. Informe apenas números'),
+    email: yup.string().email('Informe um e-mail válido').required('Deve ser informado'),
+    password: yup.string().required('Senha deve ser informada'),
+  });
+
 function Login() {
-    const { control, handleSubmit } = useForm<LoginFormFields>();
+    const { control, handleSubmit } = useForm<LoginFormFields>({
+        resolver: yupResolver(schema)
+    });
 
     const onSubmit : SubmitHandler<LoginFormFields> = data => {
         console.log('submitting...');
@@ -39,13 +51,13 @@ function Login() {
                      }
                      />
                      <Controller name="email" control={control} defaultValue=""
-                     render={({ field }) =>
-                       <InputText label='E-mail' textHint='E-mail' onChange={field.onChange}  onBlur={field.onBlur}/>
+                     render={({ field, fieldState }) =>
+                       <InputText label='E-mail' textHint='E-mail' onChange={field.onChange}  onBlur={field.onBlur} isInvalid={fieldState.error} errorInfo={fieldState.error} />
                      }   
                      />
                      <Controller name="password" control={control} defaultValue=""
-                     render={({ field }) =>
-                       <InputText label='Senha' textHint='Senha' isPassword onChange={field.onChange}  onBlur={field.onBlur}/> 
+                     render={({ field, fieldState }) =>
+                       <InputText label='Senha' textHint='Senha' isPassword onChange={field.onChange}  onBlur={field.onBlur} isInvalid={fieldState.error} errorInfo={fieldState.error} /> 
                      }   
                      />
                      <Bottom>
