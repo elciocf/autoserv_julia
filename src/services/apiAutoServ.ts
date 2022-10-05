@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const apiAutoServ = axios.create({
-  baseURL: "http://localhost:3006",
+  baseURL: "http://sistemacicom.com.br/api_autoserv",
 
   headers: {
     "Content-Type": "application/json",
